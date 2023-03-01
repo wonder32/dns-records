@@ -1,10 +1,16 @@
-# 🌍 DNS Records
+# ???? DNS Records
 
 **dns-records** is a DNS helper tool for Node.js than can quickly discover and retrieve all DNS records for a domain.
 
 Uses `dig` command to make DNS requests, has a built-in list of subdomains to test for and support for auto-discovering more subdomains based on records found.
 
-→ See it in action here https://dmns.app
+??? See it in action here https://dmns.app
+
+## Startup
+* ```git clone git@github.com:wonder32/dns-records.git dns```
+* ```cd dns```
+* ```npm link```
+* ```getdns pudding.nl```
 
 ## Highlights
 * Retrieves really fast DNS records for a domain
