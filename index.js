@@ -2,7 +2,7 @@
 
 // node index.js
 // https://github.com/LayeredStudio/dns-records
-const dnsRecords = require('@layered/dns-records');
+import { getDnsRecords, getAllDnsRecords } from '@layered/dns-records'
 
 // // print process.argv
 // process.argv.forEach(function (val, index, array) {
@@ -17,6 +17,6 @@ if (typeof url === 'undefined') {
 }
 
 (async () => {
-    const records2 = await dnsRecords.getAllRecords(url)
-    console.log('All records', records2)
+    const allRecords = await getAllDnsRecords(url)
+    console.log('All records', allRecords)
 })()

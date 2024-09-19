@@ -1,17 +1,39 @@
 {
-  "name": "dns-retrieve",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@layered/dns-records",
+  "version": "2.1.0",
+  "description": "Discover publicly available DNS Records for a domain",
+  "type": "module",
+  "keywords": [
+    "dns",
+    "domain",
+    "ns",
+    "nslookup",
+    "records"
+  ],
+  "author": "Andrei Igna <andrei@laye.red>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LayeredStudio/dns-records.git"
+  },
+  "homepage": "https://github.com/LayeredStudio/dns-records#readme",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "test": "test"
+    "build": "tsc",
+    "dev": "node --enable-source-maps --import tsx/esm --watch src/index.ts",
+    "test": "node --test --import tsx/esm test/**/*.ts"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@layered/dns-records": "^1.5.0"
+    "punycode": "^2.1.1"
   },
-  "bin": {
-    "getdns": "index.js"
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   }
 }
