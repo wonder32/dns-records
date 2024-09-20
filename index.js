@@ -16,7 +16,43 @@ if (typeof url === 'undefined') {
     process.exit(1);
 }
 
+// (async () => {
+//     const allRecords = await getAllDnsRecords(url)
+//     console.table(allRecords)
+// })()
+
+// Custom function to print the table with left-aligned columns
+function printLeftAlignedTable(data) {
+    const headers = Object.keys(data[0]);
+    const columnWidths = headers.map(header => {
+        return Math.max(...data.map(row => row[header].toString().length), header.length);
+    });
+
+    // Print the header row
+    const headerRow = headers.map((header, index) => header.padEnd(columnWidths[index], ' ')).join(' | ');
+    console.log(headerRow);
+
+    // Print separator
+    const separatorRow = columnWidths.map(width => '-'.repeat(width)).join('-|-');
+    console.log(separatorRow);
+
+    // Print the data rows
+    data.forEach(row => {
+        const rowString = headers.map((header, index) => {
+            return row[header].toString().padEnd(columnWidths[index], ' ');
+        }).join(' | ');
+        console.log(rowString);
+    });
+}
+
 (async () => {
-    const allRecords = await getAllDnsRecords(url)
-    console.log('All records', allRecords)
-})()
+    const allRecords = await getAllDnsRecords(url);
+
+    // Convert the array to an object format that matches the output format of console.table
+    const formattedRecords = allRecords.map((record, index) => ({
+        index,
+        ...record
+    }));
+
+    printLeftAlignedTable(formattedRecords);
+})();
