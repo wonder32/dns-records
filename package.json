@@ -3,6 +3,9 @@
   "version": "2.1.0",
   "description": "Discover publicly available DNS Records for a domain",
   "type": "module",
+  "bin": {
+    "getdns": "./index.js"
+  },
   "keywords": [
     "dns",
     "domain",
